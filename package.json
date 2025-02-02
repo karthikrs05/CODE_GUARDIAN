@@ -1,0 +1,52 @@
+{
+  "name": "deepseek-code-assistant",
+  "displayName": "DeepSeek Code Assistant",
+  "description": "An AI-powered coding assistant that integrates with VS Code.",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "engines": {
+      "vscode": "^1.75.0"
+  },
+  "categories": [
+      "Other"
+  ],
+  "activationEvents": [
+      "onCommand:deepseek.suggestCode",
+      "onCommand:deepseek.detectErrors",
+      "onCommand:deepseek.refactorCode",
+      "onCommand:deepseek.summarizeCode"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+      "commands": [
+          {
+              "command": "deepseek.suggestCode",
+              "title": "Get Code Suggestion from DeepSeek"
+          },
+          {
+              "command": "deepseek.detectErrors",
+              "title": "Detect Errors in Code"
+          },
+          {
+              "command": "deepseek.refactorCode",
+              "title": "Refactor Code"
+          },
+          {
+              "command": "deepseek.summarizeCode",
+              "title": "Summarize Code"
+          }
+      ]
+  },
+  "scripts": {
+      "lint": "eslint .",
+      "pretest": "npm run lint",
+      "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+      "@types/vscode": "^1.75.0",
+      "eslint": "^8.0.0"
+  },
+  "dependencies": {
+      "axios": "^1.5.0"
+  }
+}
