@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__)
 
 DEEPSEEK_API_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEEPSEEK_API_KEY = "<API KEY>"  # Replace with your actual API key
+DEEPSEEK_API_KEY = "<api key>"  # Replace with your actual API key
 
 # Endpoint for code suggestions
 @app.route('/suggest', methods=['POST'])
@@ -38,7 +38,6 @@ def suggest():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Endpoint for error detection
 @app.route('/detect-errors', methods=['POST'])
 def detect_errors():
     data = request.json
@@ -70,7 +69,7 @@ def detect_errors():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Endpoint for code refactoring
+
 @app.route('/refactor', methods=['POST'])
 def refactor():
     data = request.json
@@ -102,7 +101,7 @@ def refactor():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Endpoint for code summarization
+
 @app.route('/summarize', methods=['POST'])
 def summarize():
     data = request.json

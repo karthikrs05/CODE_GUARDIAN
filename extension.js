@@ -4,7 +4,7 @@ const axios = require('axios');
 function activate(context) {
     console.log('DeepSeek Code Assistant is now active!');
 
-    // Command for code suggestions (autocompletion)
+
     let suggestCodeDisposable = vscode.commands.registerCommand('deepseek.suggestCode', async function () {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
@@ -23,7 +23,7 @@ function activate(context) {
 
                 const suggestion = response.data.suggestion;
 
-                // Replace the selected text with the suggestion
+                
                 editor.edit(editBuilder => {
                     editBuilder.replace(selection, suggestion);
                 });
@@ -36,7 +36,6 @@ function activate(context) {
         }
     });
 
-    // Command for error detection
     let detectErrorsDisposable = vscode.commands.registerCommand('deepseek.detectErrors', async function () {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
@@ -55,7 +54,7 @@ function activate(context) {
 
                 const errors = response.data.errors;
 
-                // Show errors in a new output channel
+             
                 const outputChannel = vscode.window.createOutputChannel('DeepSeek Error Detection');
                 outputChannel.clear();
                 outputChannel.appendLine("Errors detected:");
@@ -69,7 +68,6 @@ function activate(context) {
         }
     });
 
-    // Command for code refactoring
     let refactorCodeDisposable = vscode.commands.registerCommand('deepseek.refactorCode', async function () {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
@@ -88,7 +86,7 @@ function activate(context) {
 
                 const refactoredCode = response.data.refactoredCode;
 
-                // Replace the selected text with the refactored code
+               
                 editor.edit(editBuilder => {
                     editBuilder.replace(selection, refactoredCode);
                 });
@@ -101,7 +99,7 @@ function activate(context) {
         }
     });
 
-    // Command for code summarization
+
     let summarizeCodeDisposable = vscode.commands.registerCommand('deepseek.summarizeCode', async function () {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
@@ -120,7 +118,7 @@ function activate(context) {
 
                 const summary = response.data.summary;
 
-                // Show the summary in a new output channel
+    
                 const outputChannel = vscode.window.createOutputChannel('DeepSeek Code Summary');
                 outputChannel.clear();
                 outputChannel.appendLine("Code Summary:");
@@ -134,7 +132,7 @@ function activate(context) {
         }
     });
 
-    // Add all commands to the context
+
     context.subscriptions.push(
         suggestCodeDisposable,
         detectErrorsDisposable,
